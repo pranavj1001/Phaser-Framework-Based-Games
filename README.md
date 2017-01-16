@@ -43,5 +43,5 @@ email me at **pranavj1001@gmail.com**
 
 ##License
 
-MIT License
+Apache License
 
