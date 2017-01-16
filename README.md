@@ -20,7 +20,7 @@ Some of the projects in this repo are inspired from the tutorial and are re-skin
 
   Simply, go to this [page](https://phaser.io/download). Everything with guides is there.
   
-##To run games from repository
+##To run this repository's games
 
 1) First, clone this repository or the game that you want
 
