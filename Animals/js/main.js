@@ -6,11 +6,11 @@
 var GameState = {
 	//assets are loaded in this function
 	preload: function(){
-
+        this.load.image('backgroundImageKey', 'assets/images/background.png');
 	},
 	//after preloading create function is called
 	create: function(){
-
+        this.background = this.game.add.sprite(0,0, 'backgroundImageKey');
 	},
 	//this function is called multiple times to handle the requests when game is live
 	update: function(){
