@@ -4,6 +4,7 @@
 
 //create a game state (this contains the logic of the game)
 var GameState = {
+    
 	//assets are loaded in this function
 	preload: function(){
         
@@ -17,6 +18,13 @@ var GameState = {
 	},
 	//after preloading create function is called
 	create: function(){
+        
+        //to make the game responsive i.e. make it viewable on different types of devices
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        
+        //to align the game in the center
+        this.scale.pageAlignHorizontally = true;
+        this.scale.pageAlignVertically = true;
         
         //this will create a sprite for the background
         this.background = this.game.add.sprite(0,0, 'backgroundImageKey');
