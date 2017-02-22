@@ -20,6 +20,7 @@ var GameState = {
 	create: function(){
         
         //to make the game responsive i.e. make it viewable on different types of devices
+        //SHOW_ALL mode makes the game fit the screen
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         
         //to align the game in the center
