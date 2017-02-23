@@ -38,10 +38,14 @@ var GameState = {
         this.chicken.anchor.setTo(0.5, 0.5);//takes two arguments for X and Y, if both X and Y values are same then one argument will do the job
         
         //left arrow (previous)
+        this.leftArrow = this.game.add.sprite(this.game.world.centerX - 210, this.game.world.centerY - 50, 'arrowImageKey');
+        this.leftArrow.anchor.setTo = (0.5, 0.5);
+        this.leftArrow.scale.x = -1;//flip the right arrow to make the left arrow
+        this.leftArrow.customParams = {direction: 1};
         
         //right arrow (next)
         this.rightArrow = this.game.add.sprite(this.game.world.centerX + 210, this.game.world.centerY - 50, 'arrowImageKey');
-        this.rightArrow.anchor.setTo=(0.5, 0.5);
+        this.rightArrow.anchor.setTo = (0.5, 0.5);
         this.rightArrow.customParams = {direction: 1};
         
 	},
