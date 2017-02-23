@@ -37,6 +37,11 @@ var GameState = {
         //inorder to change it we do it so with the following code
         this.chicken.anchor.setTo(0.5, 0.5);//takes two arguments for X and Y, if both X and Y values are same then one argument will do the job
         
+        //event: when user clicks on the animal
+        this.chicken.inputEnabled = true;//enable input
+        this.chicken.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
+        this.chicken.events.onInputDown.add(this.animateAnimal, this);//add event when user clicks
+        
         //left arrow (previous)
         this.leftArrow = this.game.add.sprite(this.game.world.centerX - 210, this.game.world.centerY - 50, 'arrowImageKey');
         this.leftArrow.anchor.setTo = (0.5, 0.5);
@@ -53,7 +58,7 @@ var GameState = {
         this.rightArrow.anchor.setTo = (0.5, 0.5);
         this.rightArrow.customParams = {direction: 1};
         
-         //event: when right arrow is clicked
+        //event: when right arrow is clicked
         this.rightArrow.inputEnabled = true;//enable input
         this.rightArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
         this.rightArrow.events.onInputDown.add(this.changeAnimal, this);//add event when user clicks
@@ -66,7 +71,14 @@ var GameState = {
     
     //changeAnimal function
     changeAnimal: function(sprite, event){
-        console.log(sprite, event);
+        //console.log(sprite, event);
+        console.log("Change");
+    },
+    
+    //animateAnimal function
+    animateAnimal: function(sprite, event){
+        //console.log(sprite, event);
+        console.log("Animate");
     }
     
 };
