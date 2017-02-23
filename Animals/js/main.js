@@ -14,6 +14,7 @@ var GameState = {
         this.load.image('horseImageKey', 'assets/images/horse.png');
         this.load.image('pigImageKey', 'assets/images/pig.png');
         this.load.image('sheepImageKey', 'assets/images/sheep.png');
+        this.load.image('arrowImageKey', 'assets/images/arrow.png');
         
 	},
 	//after preloading create function is called
@@ -35,6 +36,13 @@ var GameState = {
         //by default the anchor point is top left corner of the image
         //inorder to change it we do it so with the following code
         this.chicken.anchor.setTo(0.5, 0.5);//takes two arguments for X and Y, if both X and Y values are same then one argument will do the job
+        
+        //left arrow (previous)
+        
+        //right arrow (next)
+        this.rightArrow = this.game.add.sprite(this.game.world.centerX + 210, this.game.world.centerY - 50, 'arrowImageKey');
+        this.rightArrow.anchor.setTo=(0.5, 0.5);
+        this.rightArrow.customParams = {direction: 1};
         
 	},
 	//this function is called multiple times to handle the requests when game is live
