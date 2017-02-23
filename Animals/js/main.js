@@ -43,6 +43,7 @@ var GameState = {
         this.leftArrow.scale.x = -1;//flip the right arrow to make the left arrow
         this.leftArrow.customParams = {direction: 1};
         
+        //event: when left arrow is clicked
         this.leftArrow.inputEnabled = true;//enable input
         this.leftArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
         this.leftArrow.events.onInputDown.add(this.changeAnimal, this);//add event when user clicks
@@ -51,6 +52,11 @@ var GameState = {
         this.rightArrow = this.game.add.sprite(this.game.world.centerX + 210, this.game.world.centerY - 50, 'arrowImageKey');
         this.rightArrow.anchor.setTo = (0.5, 0.5);
         this.rightArrow.customParams = {direction: 1};
+        
+         //event: when right arrow is clicked
+        this.rightArrow.inputEnabled = true;//enable input
+        this.rightArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
+        this.rightArrow.events.onInputDown.add(this.changeAnimal, this);//add event when user clicks
         
 	},
 	//this function is called multiple times to handle the requests when game is live
