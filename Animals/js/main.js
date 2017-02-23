@@ -39,6 +39,7 @@ var GameState = {
         
         //event: when user clicks on the animal
         this.chicken.inputEnabled = true;//enable input
+        //pixelPerfect has a cost which is paid by the processor, so use it only when it is needed
         this.chicken.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
         this.chicken.events.onInputDown.add(this.animateAnimal, this);//add event when user clicks
         
@@ -50,7 +51,7 @@ var GameState = {
         
         //event: when left arrow is clicked
         this.leftArrow.inputEnabled = true;//enable input
-        this.leftArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
+        //this.leftArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
         this.leftArrow.events.onInputDown.add(this.changeAnimal, this);//add event when user clicks
         
         //right arrow (next)
@@ -60,7 +61,7 @@ var GameState = {
         
         //event: when right arrow is clicked
         this.rightArrow.inputEnabled = true;//enable input
-        this.rightArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
+        //this.rightArrow.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
         this.rightArrow.events.onInputDown.add(this.changeAnimal, this);//add event when user clicks
         
 	},
