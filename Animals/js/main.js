@@ -82,7 +82,7 @@ var GameState = {
         this.leftArrow = this.game.add.sprite(this.game.world.centerX - 210, this.game.world.centerY - 50, 'arrowImageKey');
         this.leftArrow.anchor.setTo = (0.5, 0.5);
         this.leftArrow.scale.x = -1;//flip the right arrow to make the left arrow
-        this.leftArrow.customParams = {direction: 1};
+        this.leftArrow.customParams = {direction: 0};
         
         //event: when left arrow is clicked
         this.leftArrow.inputEnabled = true;//enable input
@@ -121,6 +121,7 @@ var GameState = {
         
         this.currentAnimal.x = endX;
         newAnimal.x = this.game.world.centerX;
+        this.currentAnimal = newAnimal;
         
     },
     
