@@ -73,6 +73,9 @@ var GameState = {
             
         });
         
+        this.currentAnimal = this.animalsGroup.next();
+        this.currentAnimal.position.set(this.game.world.centerX, this.game.world.centerY);
+        
         //left arrow (previous)
         this.leftArrow = this.game.add.sprite(this.game.world.centerX - 210, this.game.world.centerY - 50, 'arrowImageKey');
         this.leftArrow.anchor.setTo = (0.5, 0.5);
