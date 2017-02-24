@@ -54,11 +54,13 @@ var GameState = {
         //game.add is known as game factory and is used to create objects
         this.animalsGroup = this.game.add.group();
         
-        //inorder to access to variables this inside for loop
+        //inorder to access to variables this inside forEach loop
         var self = this;
+        var animalObject;
         
         animalData.forEach(function(element){
-            self.animalsGroup.create(self.game.world.centerX, self.game.world.centerY, element.key);
+            animalObject = self.animalsGroup.create(self.game.world.centerX, self.game.world.centerY, element.key);
+            animalObject.anchor.setTo(0.5);
         });
         
         //left arrow (previous)
