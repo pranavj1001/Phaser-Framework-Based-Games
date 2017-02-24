@@ -58,9 +58,19 @@ var GameState = {
         var self = this;
         var animalObject;
         
+        //create sprites and add event for animals 
         animalData.forEach(function(element){
-            animalObject = self.animalsGroup.create(self.game.world.centerX, self.game.world.centerY, element.key);
+            
+            animalObject = self.animalsGroup.create(-1000, self.game.world.centerY, element.key);
+            
             animalObject.anchor.setTo(0.5);
+            animalObject.customParams = {text: element.text};
+            
+            animalObject.inputEnabled = true;//enable input
+            //pixelPerfect has a cost which is paid by the processor, so use it only when it is needed
+            animalObject.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
+            animalObject.events.onInputDown.add(self.animateAnimal, self);//add event when user clicks
+            
         });
         
         //left arrow (previous)
