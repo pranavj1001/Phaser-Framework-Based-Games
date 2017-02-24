@@ -1,6 +1,8 @@
- //create a new Game instance
- //set the game dimensions and set the Phaser.AUTO (OpenGL or Canvas)
- var game = new Phaser.Game(640, 360, Phaser.AUTO);
+//create a new Game instance
+//set the game dimensions and set the Phaser.AUTO (OpenGL or Canvas)
+var gameWidth = 640;
+var gameHeight = 360;
+var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO);
 
 //create a game state (this contains the logic of the game)
 var GameState = {
@@ -106,7 +108,20 @@ var GameState = {
     //changeAnimal function
     changeAnimal: function(sprite, event){
         //console.log(sprite, event);
-        console.log("Change");
+        //console.log("Change");
+        var newAnimal, endX;
+        
+        if(sprite.customParams.direction == 1){
+            newAnimal = this.animalsGroup.next();
+            endX = gameWidth + this.currentAnimal.width/2;
+        }else if(sprite.customParams.direction == 0){
+            newAnimal = this.animalsGroup.previous();
+            endX = -this.currentAnimal.width/2;
+        }
+        
+        this.currentAnimal.x = endX;
+        newAnimal.x = this.game.world.centerX;
+        
     },
     
     //animateAnimal function
