@@ -9,6 +9,7 @@ var GameState = {
 	preload: function(){
         
         //load the images from the assets folder
+        //Parameters: assetKey, assetPath
         this.load.image('backgroundImageKey', 'assets/images/background.png');
         this.load.image('chickenImageKey', 'assets/images/chicken.png');
         this.load.image('horseImageKey', 'assets/images/horse.png');
@@ -31,17 +32,34 @@ var GameState = {
         //this will create a sprite for the background
         this.background = this.game.add.sprite(0,0, 'backgroundImageKey');
         
-        //this will create a sprite for the chicken
-        this.chicken = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'chickenImageKey');
-        //by default the anchor point is top left corner of the image
-        //inorder to change it we do it so with the following code
-        this.chicken.anchor.setTo(0.5, 0.5);//takes two arguments for X and Y, if both X and Y values are same then one argument will do the job
+//        //this will create a sprite for the chicken
+//        this.chicken = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'chickenImageKey');
+//        //by default the anchor point is top left corner of the image
+//        //inorder to change it we do it so with the following code
+//        this.chicken.anchor.setTo(0.5, 0.5);//takes two arguments for X and Y, if both X and Y values are same then one argument will do the job
+//        
+//        //event: when user clicks on the animal
+//        this.chicken.inputEnabled = true;//enable input
+//        //pixelPerfect has a cost which is paid by the processor, so use it only when it is needed
+//        this.chicken.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
+//        this.chicken.events.onInputDown.add(this.animateAnimal, this);//add event when user clicks
         
-        //event: when user clicks on the animal
-        this.chicken.inputEnabled = true;//enable input
-        //pixelPerfect has a cost which is paid by the processor, so use it only when it is needed
-        this.chicken.input.pixelPerfectClick = true;//this will the clickable area to shape of the sprite and not a regular rectangle
-        this.chicken.events.onInputDown.add(this.animateAnimal, this);//add event when user clicks
+        //Group for Animals
+        var animalData = [
+            {key: 'chickenImageKey', text: 'CHICKEN'},
+            {key: 'horseImageKey', text: 'HORSE'},
+            {key: 'pigImageKey', text: 'PIG'},
+            {key: 'sheepImageKey', text: 'SHEEP'}
+        ];
+        //game.add is known as game factory and is used to create objects
+        this.animalsGroup = this.game.add.group();
+        
+        //inorder to access to variables this inside for loop
+        var self = this;
+        
+        animalData.forEach(function(element){
+            self.animalsGroup.create(self.game.world.centerX, self.game.world.centerY, element.key);
+        });
         
         //left arrow (previous)
         this.leftArrow = this.game.add.sprite(this.game.world.centerX - 210, this.game.world.centerY - 50, 'arrowImageKey');
